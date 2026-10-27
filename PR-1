@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void SwapValue(int a, int b)
+{
+    int c;
+    c = a;
+    a = b;
+    b = c;
+
+    printf("Call by Value:\n");
+    printf("No 1 = %d\n", a);
+    printf("No 2 = %d\n", b);
+}
+
+void SwapReference(int *a, int *b)
+{
+    int c;
+    c = *a;
+    *a = *b;
+    *b = c;
+
+    printf("Call by Reference:\n");
+    printf("No 1 = %d\n", *a);
+    printf("No 2 = %d\n", *b);
+}
+
+int main(void)
+{
+    int a = 10, b = 20;
+
+    SwapValue(a, b);
+
+    printf("\nOriginal values: a = %d, b = %d\n\n", a, b);
+
+    SwapReference(&a, &b);
+
+    return 0;
+}
