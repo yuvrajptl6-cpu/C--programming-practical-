@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int queue[10], front = 0, rear = 0;
+    int ch, no, i, n = 10;
+
+    while (1)
+    {
+        printf("\nQueue Operation");
+        printf("\n1. Insertion");
+        printf("\n2. Deletion");
+        printf("\n3. Display");
+        printf("\n4. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+        case 1:
+            if (rear == n)
+            {
+                printf("\nQueue is full");
+            }
+            else
+            {
+                printf("\nEnter number: ");
+                scanf("%d", &no);
+                queue[rear] = no;
+                rear++;
+                printf("\nInsert %d Successfully\n", no);
+            }
+            break;
+
+        case 2:
+            if (front == rear)
+            {
+                printf("\nQueue is underflow (Empty)!\n");
+            }
+            else
+            {
+                printf("\nDeleted element is: %d\n", queue[front]);
+                front++;
+            }
+            break;
+
+        case 3:
+            if (front == rear)
+            {
+                printf("\nQueue is Empty!\n");
+            }
+            else
+            {
+                for (i = front; i < rear; i++)
+                {
+                    printf("%d ", queue[i]);
+                }
+                printf("\n");
+            }
+            break;
+
+        case 4:
+            printf("\nExiting Program....\n");
+            exit(0);
+
+        default:
+            printf("\nInvalid choice! Please try again\n");
+        }
+    }
+    return 0;
+}
